@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    protected $primaryKey = 'CustomerID';
+
     protected $fillable = [
         'CustomerName',
         'NIC',

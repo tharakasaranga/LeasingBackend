@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contract extends Model
 {
-    //
+    protected $primaryKey = 'ContractID';
+
     protected $fillable = [
         'CustomerID',
         'VehicleID',
@@ -14,4 +15,14 @@ class Contract extends Model
         'LeasingAmount',
         'status',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'CustomerID', 'CustomerID');
+    }
+
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class, 'VehicleID', 'VehicleID');
+    }
 }

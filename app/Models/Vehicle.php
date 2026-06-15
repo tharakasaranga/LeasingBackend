@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
+    protected $primaryKey = 'VehicleID';
+
     protected $fillable = [
         'Brand',
         'Model',
