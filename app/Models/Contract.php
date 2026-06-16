@@ -25,4 +25,9 @@ class Contract extends Model
     {
         return $this->belongsTo(Vehicle::class, 'VehicleID', 'VehicleID');
     }
+
+    public function refinanceApplications()
+    {
+        return $this->hasMany(RefinanceApplication::class, 'ContractID', 'ContractID');
+    }
 }

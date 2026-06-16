@@ -14,4 +14,9 @@ class Customer extends Model
         'Address',
         'ContactNumber',
     ];
+
+    public function contracts()
+    {
+        return $this->hasMany(Contract::class, 'CustomerID', 'CustomerID');
+    }
 }

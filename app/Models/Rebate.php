@@ -15,4 +15,9 @@ class Rebate extends Model
         'RebatingInterestPercentage',
         'RebatingInterestAmount',
     ];
+
+    public function refinanceApplication()
+    {
+        return $this->belongsTo(RefinanceApplication::class, 'RefinanceID', 'RefinanceID');
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Refinanceapplication extends Model
+class RefinanceApplication extends Model
 {
     protected $primaryKey = 'RefinanceID';
 
@@ -13,4 +13,14 @@ class Refinanceapplication extends Model
         'ApplicationDate',
         'status',
     ];
+
+    public function contract()
+    {
+        return $this->belongsTo(Contract::class, 'ContractID', 'ContractID');
+    }
+
+    public function rebates()
+    {
+        return $this->hasMany(Rebate::class, 'RefinanceID', 'RefinanceID');
+    }
 }
