@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class RefinanceApplication extends Model
 {
+    protected $table = 'refinanceapplications';
+
     protected $primaryKey = 'RefinanceID';
 
     protected $fillable = [

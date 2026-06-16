@@ -13,6 +13,23 @@ class RebateController extends Controller
         return response()->json(Rebate::with('refinanceApplication')->get(), 200);
     }
 
+    public function byContract($contractId)
+    {
+        $rebate = Rebate::with('refinanceApplication')
+            ->whereHas('refinanceApplication', function ($query) use ($contractId) {
+                $query->where('ContractID', $contractId);
+            })
+            ->orderByDesc('created_at')
+            ->orderByDesc('RebateID')
+            ->first();
+
+        if (!$rebate) {
+            return response()->json(null, 200);
+        }
+
+        return response()->json($rebate, 200);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

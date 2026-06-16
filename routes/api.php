@@ -20,6 +20,7 @@ Route::apiResource('customers', CustomerController::class);
 Route::apiResource('vehicles', VehicleController::class);
 Route::apiResource('contracts', ContractController::class);
 Route::apiResource('refinance-applications', RefinanceApplicationController::class);
+Route::get('rebates/contract/{contractId}', [RebateController::class, 'byContract']);
 Route::apiResource('rebates', RebateController::class);
 
 
